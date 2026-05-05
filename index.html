@@ -62,8 +62,13 @@
       position: relative;
       z-index: 1;
     }
-
-    .avatar {
+.avatar img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+  /* .avatar{
       width: 120px;
       height: 120px;
       border-radius: 50%;
@@ -75,7 +80,7 @@
       margin-bottom: 1.5rem;
       box-shadow: 0 0 40px rgba(108,99,255,0.4);
       animation: pulse 3s ease-in-out infinite;
-    }
+    }*/
 
     @keyframes pulse {
       0%, 100% { box-shadow: 0 0 40px rgba(108,99,255,0.4); }
@@ -417,6 +422,6 @@
   <footer>
     صُنع بـ <span>♥</span> بواسطة محمد أبوبكر · 2025
   </footer>
-
+<img src="photo.jpg" alt="محمد أبوبكر">
 </body>
 </html>

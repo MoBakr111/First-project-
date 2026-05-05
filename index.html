@@ -1,470 +1,280 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="ar" dir="rtl" id="main-html">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>محمد أبوبكر | Mohamed Abu Bakr</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --primary-color: #6c63ff;
-            --accent-purple: #6c63ff;
-            --accent-pink: #ff6584;
-            --accent-orange: #f7971e;
-            --accent-green: #43e97b;
-            --accent-lavender: #a18cd1;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>محمد أبوبكر | Mohamed Abu Bakr</title>
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;700;900&family=Montserrat:wght@300;400;700;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0a0a0f;
+      --surface: #12121a;
+      --card: #1a1a26;
+      --accent: #6c63ff;
+      --accent2: #ff6584;
+      --accent3: #43e97b;
+      --text: #e8e8f0;
+      --muted: #7070a0;
+      --font-ar: 'Tajawal', sans-serif;
+      --font-en: 'Montserrat', sans-serif;
+    }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
 
-        body {
-            font-family: 'Cairo', sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-            min-height: 100vh;
-        }
+    body {
+      font-family: var(--font-ar);
+      background: var(--bg);
+      color: var(--text);
+      overflow-x: hidden;
+      transition: all 0.3s ease;
+    }
 
-        /* Header/Hero */
-        .hero-section {
-            text-align: center;
-            padding: 4rem 2rem;
-            background: linear-gradient(135deg, var(--primary-color), #a29bfe);
-            color: white;
-            position: relative;
-            overflow: hidden;
-        }
+    /* زر تغيير اللغة */
+    .lang-switcher {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      z-index: 100;
+      background: var(--accent);
+      color: white;
+      border: none;
+      padding: 8px 15px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-family: var(--font-en);
+      font-weight: bold;
+      box-shadow: 0 4px 15px rgba(108,99,255,0.3);
+    }
 
-        .hero-name {
-            font-size: 3.5rem;
-            font-weight: 700;
-            margin-bottom: 0.5rem;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-        }
+    /* Background Effects */
+    body::before {
+      content: '';
+      position: fixed;
+      top: -50%;
+      right: -20%;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(108,99,255,0.12) 0%, transparent 70%);
+      pointer-events: none;
+      z-index: 0;
+    }
 
-        .hero-sub {
-            font-size: 1.4rem;
-            opacity: 0.95;
-            font-weight: 300;
-        }
+    /* Hero Section */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 2rem;
+      position: relative;
+      z-index: 1;
+    }
 
-        .hero-sub span {
-            font-weight: 600;
-        }
+    .avatar {
+      width: 130px;
+      height: 130px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.5rem;
+      box-shadow: 0 0 40px rgba(108,99,255,0.4);
+      padding: 5px;
+    }
 
-        .social-links {
-            margin-top: 2rem;
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-            flex-wrap: wrap;
-        }
+    .avatar img {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid var(--bg);
+    }
 
-        .social-btn {
-            background: rgba(255,255,255,0.2);
-            color: white;
-            padding: 0.8rem 1.5rem;
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: 500;
-            transition: all 0.3s ease;
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255,255,255,0.3);
-        }
+    .hero-name {
+      font-size: clamp(2.5rem, 8vw, 4.5rem);
+      font-weight: 900;
+      margin-bottom: 0.5rem;
+      background: linear-gradient(135deg, #fff 40%, var(--accent));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
 
-        .social-btn:hover {
-            background: white;
-            color: var(--primary-color);
-            transform: translateY(-3px);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-        }
+    .hero-sub { font-size: 1.1rem; color: var(--muted); margin-bottom: 2rem; }
+    .hero-sub span { color: var(--accent3); font-weight: 600; }
 
-        .scroll-indicator {
-            margin-top: 3rem;
-            font-size: 1.2rem;
-            opacity: 0.8;
-            animation: bounce 2s infinite;
-        }
+    .social-links { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+    .social-btn {
+      padding: 0.6rem 1.2rem;
+      border-radius: 50px;
+      border: 1px solid rgba(108,99,255,0.3);
+      color: var(--text);
+      text-decoration: none;
+      font-size: 0.85rem;
+      transition: 0.3s;
+      background: rgba(108,99,255,0.05);
+    }
+    .social-btn:hover { background: var(--accent); transform: translateY(-3px); }
 
-        @keyframes bounce {
-            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
-            40% { transform: translateY(-10px); }
-            60% { transform: translateY(-5px); }
-        }
+    /* Content Sections */
+    section { padding: 4rem 1.5rem; max-width: 900px; margin: 0 auto; position: relative; z-index: 1; }
+    .section-title { font-size: 2rem; font-weight: 900; margin-bottom: 1.5rem; color: #fff; }
+    .about-text { font-size: 1.1rem; line-height: 1.8; color: var(--muted); border-right: 4px solid var(--accent); padding-right: 1.5rem; }
+    
+    /* English Style Adjustment */
+    html[dir="ltr"] .about-text { border-right: none; border-left: 4px solid var(--accent); padding-right: 0; padding-left: 1.5rem; }
+    html[dir="ltr"] body { font-family: var(--font-en); }
 
-        /* Divider */
-        .divider {
-            height: 1px;
-            background: linear-gradient(90deg, transparent, #ddd, transparent);
-            margin: 0 auto;
-            max-width: 200px;
-        }
+    .interests-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 1.2rem; }
+    .interest-card {
+      background: var(--card);
+      border-radius: 16px;
+      padding: 1.5rem;
+      transition: 0.3s;
+      border: 1px solid rgba(255,255,255,0.05);
+    }
+    .interest-card:hover { transform: translateY(-5px); border-color: var(--accent); }
+    .interest-icon { font-size: 2rem; margin-bottom: 0.5rem; }
 
-        /* Sections */
-        section {
-            padding: 4rem 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
+    .skills-list { display: flex; flex-wrap: wrap; gap: 0.8rem; }
+    .skill-tag { padding: 0.5rem 1.2rem; border-radius: 50px; font-size: 0.85rem; font-weight: 600; border: 1px solid; }
+    .skill-tag.purple { color: var(--accent); border-color: var(--accent); }
 
-        .section-label {
-            font-size: 0.9rem;
-            color: var(--primary-color);
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-bottom: 0.5rem;
-        }
-
-        .section-title {
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin-bottom: 2rem;
-            color: #2c3e50;
-        }
-
-        /* About */
-        .about-text {
-            font-size: 1.2rem;
-            max-width: 800px;
-            margin: 0 auto;
-            text-align: center;
-            line-height: 1.8;
-        }
-
-        .about-text strong {
-            color: var(--primary-color);
-        }
-
-        /* Interests */
-        .interests-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-
-        .interest-card {
-            background: white;
-            padding: 2rem;
-            border-radius: 20px;
-            text-align: center;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            transition: all 0.3s ease;
-            border-top: 4px solid transparent;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .interest-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
-        }
-
-        .interest-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: var(--card-accent);
-        }
-
-        .interest-icon {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-        }
-
-        .interest-name {
-            font-size: 1.5rem;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-            color: #2c3e50;
-        }
-
-        .interest-desc {
-            color: #666;
-            font-size: 1.1rem;
-        }
-
-        /* Skills */
-        .skills-list {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1rem;
-            justify-content: center;
-            margin-top: 2rem;
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .skill-tag {
-            padding: 0.8rem 1.5rem;
-            border-radius: 50px;
-            font-weight: 500;
-            font-size: 1rem;
-            border: none;
-            cursor: default;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            transition: all 0.3s ease;
-        }
-
-        .skill-tag:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
-        }
-
-        .purple { background: linear-gradient(135deg, #6c63ff, #a29bfe); color: white; }
-        .green { background: linear-gradient(135deg, #43e97b, #7be8a5); color: white; }
-        .pink { background: linear-gradient(135deg, #ff6584, #ff9ab0); color: white; }
-
-        /* Footer */
-        footer {
-            background: #2c3e50;
-            color: white;
-            text-align: center;
-            padding: 2rem;
-            font-size: 1.1rem;
-        }
-
-        /* Language Toggle */
-        .lang-toggle {
-            position: fixed;
-            top: 20px;
-            left: 20px;
-            z-index: 1000;
-            background: var(--primary-color);
-            color: white;
-            border: none;
-            padding: 0.8rem 1.2rem;
-            border-radius: 25px;
-            font-family: 'Cairo', sans-serif;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(108,99,255,0.4);
-        }
-
-        .lang-toggle:hover {
-            background: white;
-            color: var(--primary-color);
-            transform: translateY(-2px);
-        }
-
-        /* English styles */
-        body.en {
-            font-family: 'Cairo', sans-serif;
-            direction: ltr;
-            text-align: left;
-        }
-
-        body.en .hero-section,
-        body.en .about-text {
-            text-align: center;
-        }
-
-        body.en .lang-toggle {
-            left: auto;
-            right: 20px;
-        }
-
-        body.en .interests-grid {
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        }
-
-        body.en section {
-            text-align: left;
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .hero-name {
-                font-size: 2.5rem;
-            }
-
-            .section-title {
-                font-size: 2rem;
-            }
-
-            .social-links {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .skills-list {
-                justify-content: center;
-            }
-
-            .interests-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
+    footer { text-align: center; padding: 3rem; color: var(--muted); border-top: 1px solid rgba(255,255,255,0.05); }
+    .divider { height: 1px; background: linear-gradient(90deg, transparent, rgba(108,99,255,0.3), transparent); margin: 0 auto; max-width: 900px; }
+  </style>
 </head>
 <body>
 
-    <button class="lang-toggle" onclick="toggleLang()">🇬🇧 English</button>
+  <button class="lang-switcher" onclick="toggleLanguage()" id="lang-btn">English</button>
 
-    <!-- Hero Section -->
-    <section class="hero-section" id="hero">
-        <h1 class="hero-name" id="hero-name">محمد أبوبكر<br><span style="font-weight: 300; font-size: 0.6em;">Mohamed Abu Bakr</span></h1>
-        <p class="hero-sub" id="hero-sub">طالب <span>كلية الحاسبات والمعلومات</span><br><small>Computer & Information Faculty Student · Aspiring Programmer</small></p>
+  <section class="hero">
+    <div class="avatar"><img src="٢٠٢٥١٠١٨_١٥١٩٠٦.jpg" alt="محمد"></div>
+    <p class="hero-tag" data-key="welcome">مرحباً بك في صفحتي</p>
+    <h1 class="hero-name" data-key="name">محمد أبوبكر</h1>
+    <p class="hero-sub"><span data-key="status">طالب كلية الحاسبات والمعلومات</span> · <span data-key="title">مبرمج ناشئ</span></p>
 
-        <div class="social-links">
-            <a href="https://github.com/MoBakr111" class="social-btn" target="_blank">
-                🐙 GitHub
-            </a>
-            <a href="YOUR_INSTAGRAM_LINK" class="social-btn" target="_blank">
-                📸 Instagram
-            </a>
-            <a href="https://www.linkedin.com/in/mohammed-abu-bakr-a3a79934b?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" class="social-btn" target="_blank">
-                💼 LinkedIn
-            </a>
-        </div>
+    <div class="social-links">
+      <a href="https://github.com/MoBakr111" class="social-btn">GitHub</a>
+      <a href="#" class="social-btn">LinkedIn</a>
+      <a href="#" class="social-btn">Instagram</a>
+    </div>
+  </section>
 
-        <div class="scroll-indicator" id="scroll-indicator">
-            ↓ اسكرول / Scroll
-        </div>
-    </section>
+  <div class="divider"></div>
 
-    <div class="divider"></div>
+  <section>
+    <h2 class="section-title" data-key="aboutTitle">نبذة عني 👋</h2>
+    <p class="about-text" data-key="aboutDesc">
+        أنا محمد أبوبكر، طالب في كلية الحاسبات والمعلومات. شغوف بالتكنولوجيا والبرمجة، وبحاول كل يوم أتعلم حاجة جديدة. بجمع بين حبي للكود والإبداع.
+    </p>
+  </section>
 
-    <!-- About -->
-    <section id="about">
-        <p class="section-label" id="about-label">من أنا / About Me</p>
-        <h2 class="section-title" id="about-title">نبذة عني 👋<br><span style="font-weight: 300;">About Me</span></h2>
-        <p class="about-text" id="about-text">
-            أنا <strong>محمد أبوبكر</strong>، طالب في <strong>كلية الحاسبات والمعلومات</strong>.
-            شغوف بالتكنولوجيا والبرمجة، وبحاول كل يوم أتعلم حاجة جديدة.
-            بجمع بين حبي للكود والإبداع — سواء كان ده في التصوير أو الأفلام أو الروايات.
-            بؤمن إن الـ developer الكويس محتاج يكون متكامل، مش بس شايل لاب توب! 💪
-            <br><br>
-            <em>I'm <strong>Mohamed Abu Bakr</strong>, a student at the <strong>Faculty of Computers and Information</strong>.
-            Passionate about technology and programming, I try to learn something new every day.
-            I combine my love for code and creativity — whether in photography, movies, or novels.
-            I believe a good developer needs to be well-rounded, not just carrying a laptop! 💪</em>
-        </p>
-    </section>
+  <div class="divider"></div>
 
-    <div class="divider"></div>
+  <section>
+    <h2 class="section-title" data-key="interestsTitle">اللي بحبه ✨</h2>
+    <div class="interests-grid" id="interests-container">
+      </div>
+  </section>
 
-    <!-- Interests -->
-    <section id="interests">
-        <p class="section-label" id="interests-label">اهتماماتي / Interests</p>
-        <h2 class="section-title" id="interests-title">اللي بحبه ✨<br><span style="font-weight: 300;">What I Love</span></h2>
-        <div class="interests-grid">
-            <div class="interest-card" style="--card-accent: #6c63ff">
-                <div class="interest-icon">💻</div>
-                <div class="interest-name" data-ar="البرمجة والكود" data-en="Programming & Code">البرمجة والكود</div>
-                <div class="interest-desc" data-ar="بحب أبني حاجات من الصفر وأشوفها شغالة" data-en="I love building things from scratch and seeing them work">بحب أبني حاجات من الصفر وأشوفها شغالة</div>
-            </div>
-            <div class="interest-card" style="--card-accent: #ff6584">
-                <div class="interest-icon">📸</div>
-                <div class="interest-name" data-ar="التصوير الفوتوغرافي" data-en="Photography">التصوير الفوتوغرافي</div>
-                <div class="interest-desc" data-ar="بشوف العالم من زاوية مختلفة ليا" data-en="I see the world from a different angle">بشوف العالم من زاوية مختلفة ليا</div>
-            </div>
-            <div class="interest-card" style="--card-accent: #f7971e">
-                <div class="interest-icon">🎬</div>
-                <div class="interest-name" data-ar="الأفلام" data-en="Movies">الأفلام</div>
-                <div class="interest-desc" data-ar="بعشق قصص بتغير طريقة تفكيرك" data-en="I love stories that change your way of thinking">بعشق قصص بتغير طريقة تفكيرك</div>
-            </div>
-            <div class="interest-card" style="--card-accent: #43e97b">
-                <div class="interest-icon">⚽</div>
-                <div class="interest-name" data-ar="كرة القدم" data-en="Football">كرة القدم</div>
-                <div class="interest-desc" data-ar="الملعب بيعلمك روح الفريق والعزيمة" data-en="The field teaches you team spirit and determination">الملعب بيعلمك روح الفريق والعزيمة</div>
-            </div>
-            <div class="interest-card" style="--card-accent: #a18cd1">
-                <div class="interest-icon">📚</div>
-                <div class="interest-name" data-ar="روايات" data-en="Novels">روايات</div>
-                <div class="interest-desc" data-ar="كل رواية رحلة لعالم تاني بالكامل" data-en="Every novel is a journey to a completely different world">كل رواية رحلة لعالم تاني بالكامل</div>
-            </div>
-        </div>
-    </section>
+  <div class="divider"></div>
 
-    <div class="divider"></div>
+  <section>
+    <h2 class="section-title" data-key="skillsTitle">بتعلم دلوقتي 🚀</h2>
+    <div class="skills-list">
+      <span class="skill-tag purple">HTML/CSS</span>
+      <span class="skill-tag purple">JavaScript</span>
+      <span class="skill-tag purple">C++</span>
+      <span class="skill-tag purple">Git & GitHub</span>
+    </div>
+  </section>
 
-    <!-- Skills -->
-    <section id="skills">
-        <p class="section-label" id="skills-label">المهارات / Skills</p>
-        <h2 class="section-title" id="skills-title">بتعلم دلوقتي 🚀<br><span style="font-weight: 300;">Learning Now</span></h2>
-        <div class="skills-list">
-            <span class="skill-tag purple" data-ar="HTML" data-en="HTML">HTML</span>
-            <span class="skill-tag purple" data-ar="CSS" data-en="CSS">CSS</span>
-            <span class="skill-tag purple" data-ar="JavaScript" data-en="JavaScript">JavaScript</span>
-            <span class="skill-tag green" data-ar="GitHub" data-en="GitHub">GitHub</span>
-            <span class="skill-tag green" data-ar="Git" data-en="Git">Git</span>
-            <span class="skill-tag pink" data-ar="Problem Solving" data-en="Problem Solving">Problem Solving</span>
-            <span class="skill-tag pink" data-ar="التفكير المنطقي" data-en="Logical Thinking">التفكير المنطقي</span>
-        </div>
-    </section>
+  <footer>
+    <p><span data-key="footer">صُنع بـ ♥ بواسطة محمد أبوبكر</span> · 2026</p>
+  </footer>
 
-    <!-- Footer -->
-    <footer id="footer">
-        صُنع بـ <span>♥</span> بواسطة محمد أبوبكر · 2025<br>
-        Made with <span>♥</span> by Mohamed Abu Bakr · 2025
-    </footer>
+  <script>
+    const translations = {
+      ar: {
+        welcome: "مرحباً بك في صفحتي",
+        name: "محمد أبوبكر",
+        status: "طالب كلية الحاسبات والمعلومات",
+        title: "مبرمج ناشئ",
+        aboutTitle: "نبذة عني 👋",
+        aboutDesc: "أنا محمد أبوبكر، طالب في كلية الحاسبات والمعلومات. شغوف بالتكنولوجيا والبرمجة، وبحاول كل يوم أتعلم حاجة جديدة. بجمع بين حبي للكود والإبداع — سواء كان ده في التصوير أو الأفلام أو الروايات.",
+        interestsTitle: "اللي بحبه ✨",
+        skillsTitle: "بتعلم دلوقتي 🚀",
+        footer: "صُنع بـ ♥ بواسطة محمد أبوبكر",
+        langBtn: "English",
+        interests: [
+          { icon: "💻", name: "البرمجة", desc: "بناء الأنظمة من الصفر" },
+          { icon: "📸", name: "التصوير", desc: "رؤية العالم بزاوية فنية" },
+          { icon: "🎬", name: "الأفلام", desc: "قصص تغير التفكير" },
+          { icon: "⚽", name: "كرة القدم", desc: "روح الفريق والعزيمة" }
+        ]
+      },
+      en: {
+        welcome: "Welcome to my portfolio",
+        name: "Mohamed Abu Bakr",
+        status: "Faculty of Computers & Information Student",
+        title: "Junior Developer",
+        aboutTitle: "About Me 👋",
+        aboutDesc: "I am Mohamed Abu Bakr, a student at the Faculty of Computers and Information. Passionate about technology and programming, I strive to learn something new every day. I combine my love for code with creativity — whether in photography, movies, or novels.",
+        interestsTitle: "Interests ✨",
+        skillsTitle: "Learning Now 🚀",
+        footer: "Made with ♥ by Mohamed Abu Bakr",
+        langBtn: "عربي",
+        interests: [
+          { icon: "💻", name: "Coding", desc: "Building things from scratch" },
+          { icon: "📸", name: "Photography", desc: "Seeing the world creatively" },
+          { icon: "🎬", name: "Movies", desc: "Stories that change perspectives" },
+          { icon: "⚽", name: "Football", desc: "Team spirit and determination" }
+        ]
+      }
+    };
 
-    <script>
-        let isEnglish = false;
+    let currentLang = 'ar';
 
-        function toggleLang() {
-            isEnglish = !isEnglish;
-            document.body.classList.toggle('en', isEnglish);
-            document.documentElement.lang = isEnglish ? 'en' : 'ar';
-            document.documentElement.dir = isEnglish ? 'ltr' : 'rtl';
-
-            // Update button
-            const btn = document.querySelector('.lang-toggle');
-            btn.textContent = isEnglish ? '🇸🇦 العربية' : '🇬🇧 English';
-
-            // Update static texts
-            const elements = {
-                'hero-name': isEnglish ? 'Mohamed Abu Bakr' : 'محمد أبوبكر',
-                // Note: hero-name has br, but we update main
-                'hero-sub': isEnglish ? 'Computer & Information Faculty Student · Aspiring Programmer' : 'طالب كلية الحاسبات والمعلومات · مبرمج ناشئ',
-                'scroll-indicator': isEnglish ? '↓ Scroll' : '↓ اسكرول',
-                'about-label': isEnglish ? 'About Me' : 'من أنا',
-                'about-title': isEnglish ? 'About Me 👋' : 'نبذة عني 👋',
-                'interests-label': isEnglish ? 'Interests' : 'اهتماماتي',
-                'interests-title': isEnglish ? 'What I Love ✨' : 'اللي بحبه ✨',
-                'skills-label': isEnglish ? 'Skills' : 'المهارات',
-                'skills-title': isEnglish ? 'Learning Now 🚀' : 'بتعلم دلوقتي 🚀',
-                'footer': isEnglish ? 'Made with ♥ by Mohamed Abu Bakr · 2025' : 'صُنع بـ ♥ بواسطة محمد أبوبكر · 2025'
-            };
-
-            Object.entries(elements).forEach(([id, text]) => {
-                const el = document.getElementById(id);
-                if (el) {
-                    if (id === 'hero-name') {
-                        el.innerHTML = isEnglish ? 'Mohamed Abu Bakr<br><span style="font-weight: 300; font-size: 0.6em;">محمد أبوبكر</span>' : 'محمد أبوبكر<br><span style="font-weight: 300; font-size: 0.6em;">Mohamed Abu Bakr</span>';
-                    } else if (id === 'hero-sub') {
-                        el.innerHTML = isEnglish ? 'Computer & Information Faculty Student · Aspiring Programmer<br><small>طالب <span>كلية الحاسبات والمعلومات</span> · مبرمج ناشئ</small>' : 'طالب <span>كلية الحاسبات والمعلومات</span> · مبرمج ناشئ<br><small>Computer & Information Faculty Student · Aspiring Programmer</small>';
-                    } else if (id === 'about-text') {
-                        // about-text has both, no change needed as it already has both
-                    } else {
-                        el.textContent = text;
-                    }
-                }
-            });
-
-            // Update data attributes for interests and skills
-            document.querySelectorAll('[data-ar]').forEach(el => {
-                el.textContent = isEnglish ? el.dataset.en : el.dataset.ar;
-            });
+    function toggleLanguage() {
+      currentLang = currentLang === 'ar' ? 'en' : 'ar';
+      const html = document.getElementById('main-html');
+      
+      // تغيير اتجاه الصفحة واللغة
+      html.lang = currentLang;
+      html.dir = currentLang === 'ar' ? 'rtl' : 'ltr';
+      
+      // تحديث النصوص البسيطة
+      document.querySelectorAll('[data-key]').forEach(el => {
+        const key = el.getAttribute('data-key');
+        if (translations[currentLang][key]) {
+          el.innerText = translations[currentLang][key];
         }
+      });
 
-        // Smooth scrolling for scroll indicator
-        document.querySelector('.scroll-indicator').addEventListener('click', () => {
-            document.getElementById('about').scrollIntoView({ behavior: 'smooth' });
-        });
-    </script>
+      // تحديث زر اللغة
+      document.getElementById('lang-btn').innerText = translations[currentLang].langBtn;
+
+      // تحديث كروت الاهتمامات
+      renderInterests();
+    }
+
+    function renderInterests() {
+      const container = document.getElementById('interests-container');
+      container.innerHTML = translations[currentLang].interests.map(item => `
+        <div class="interest-card">
+          <div class="interest-icon">${item.icon}</div>
+          <div class="interest-name">${item.name}</div>
+          <div class="interest-desc">${item.desc}</div>
+        </div>
+      `).join('');
+    }
+
+    // تشغيل أولي
+    renderInterests();
+  </script>
 </body>
 </html>
+

@@ -1,427 +1,470 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>محمد أبوبكر</title>
-  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&family=Bebas+Neue&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --bg: #0a0a0f;
-      --surface: #12121a;
-      --card: #1a1a26;
-      --accent: #6c63ff;
-      --accent2: #ff6584;
-      --accent3: #43e97b;
-      --text: #e8e8f0;
-      --muted: #7070a0;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>محمد أبوبكر | Mohamed Abu Bakr</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #6c63ff;
+            --accent-purple: #6c63ff;
+            --accent-pink: #ff6584;
+            --accent-orange: #f7971e;
+            --accent-green: #43e97b;
+            --accent-lavender: #a18cd1;
+        }
 
-    * { margin: 0; padding: 0; box-sizing: border-box; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    body {
-      font-family: 'Cairo', sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      overflow-x: hidden;
-    }
+        body {
+            font-family: 'Cairo', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+        }
 
-    /* Background */
-    body::before {
-      content: '';
-      position: fixed;
-      top: -50%;
-      right: -20%;
-      width: 600px;
-      height: 600px;
-      background: radial-gradient(circle, rgba(108,99,255,0.12) 0%, transparent 70%);
-      pointer-events: none;
-      z-index: 0;
-    }
-    body::after {
-      content: '';
-      position: fixed;
-      bottom: -30%;
-      left: -10%;
-      width: 500px;
-      height: 500px;
-      background: radial-gradient(circle, rgba(255,101,132,0.08) 0%, transparent 70%);
-      pointer-events: none;
-      z-index: 0;
-    }
+        /* Header/Hero */
+        .hero-section {
+            text-align: center;
+            padding: 4rem 2rem;
+            background: linear-gradient(135deg, var(--primary-color), #a29bfe);
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
 
-    /* Hero */
-    .hero {
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      padding: 2rem;
-      position: relative;
-      z-index: 1;
-    }
-.avatar img {
-  width: 120px;
-  height: 120px;
-  border-radius: 50%;
-  object-fit: cover;
-}
-   .avatar{
-      width: 120px;
-      height: 120px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, var(--accent), var(--accent2));
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 3rem;
-      margin-bottom: 1.5rem;
-      box-shadow: 0 0 40px rgba(108,99,255,0.4);
-      animation: pulse 3s ease-in-out infinite;
-    }
+        .hero-name {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
 
-    @keyframes pulse {
-      0%, 100% { box-shadow: 0 0 40px rgba(108,99,255,0.4); }
-      50% { box-shadow: 0 0 60px rgba(108,99,255,0.7); }
-    }
+        .hero-sub {
+            font-size: 1.4rem;
+            opacity: 0.95;
+            font-weight: 300;
+        }
 
-    .hero-tag {
-      font-size: 0.75rem;
-      letter-spacing: 4px;
-      color: var(--accent);
-      text-transform: uppercase;
-      margin-bottom: 1rem;
-      opacity: 0;
-      animation: fadeUp 0.8s ease forwards 0.2s;
-    }
+        .hero-sub span {
+            font-weight: 600;
+        }
 
-    .hero-name {
-      font-size: clamp(2.5rem, 8vw, 5rem);
-      font-weight: 900;
-      line-height: 1;
-      margin-bottom: 0.5rem;
-      opacity: 0;
-      animation: fadeUp 0.8s ease forwards 0.4s;
-      background: linear-gradient(135deg, #fff 40%, var(--accent));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
+        .social-links {
+            margin-top: 2rem;
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
 
-    .hero-sub {
-      font-size: 1.1rem;
-      color: var(--muted);
-      margin-bottom: 2rem;
-      opacity: 0;
-      animation: fadeUp 0.8s ease forwards 0.6s;
-    }
+        .social-btn {
+            background: rgba(255,255,255,0.2);
+            color: white;
+            padding: 0.8rem 1.5rem;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.3);
+        }
 
-    .hero-sub span {
-      color: var(--accent3);
-      font-weight: 600;
-    }
+        .social-btn:hover {
+            background: white;
+            color: var(--primary-color);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
 
-    .social-links {
-      display: flex;
-      gap: 1rem;
-      justify-content: center;
-      flex-wrap: wrap;
-      opacity: 0;
-      animation: fadeUp 0.8s ease forwards 0.8s;
-    }
+        .scroll-indicator {
+            margin-top: 3rem;
+            font-size: 1.2rem;
+            opacity: 0.8;
+            animation: bounce 2s infinite;
+        }
 
-    .social-btn {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      padding: 0.6rem 1.2rem;
-      border-radius: 50px;
-      border: 1px solid rgba(108,99,255,0.3);
-      color: var(--text);
-      text-decoration: none;
-      font-family: 'Cairo', sans-serif;
-      font-size: 0.85rem;
-      transition: all 0.3s ease;
-      background: rgba(108,99,255,0.05);
-    }
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-10px); }
+            60% { transform: translateY(-5px); }
+        }
 
-    .social-btn:hover {
-      background: var(--accent);
-      border-color: var(--accent);
-      transform: translateY(-3px);
-      box-shadow: 0 10px 20px rgba(108,99,255,0.3);
-    }
+        /* Divider */
+        .divider {
+            height: 1px;
+            background: linear-gradient(90deg, transparent, #ddd, transparent);
+            margin: 0 auto;
+            max-width: 200px;
+        }
 
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(30px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
+        /* Sections */
+        section {
+            padding: 4rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
 
-    /* Sections */
-    section {
-      padding: 5rem 1.5rem;
-      max-width: 900px;
-      margin: 0 auto;
-      position: relative;
-      z-index: 1;
-    }
+        .section-label {
+            font-size: 0.9rem;
+            color: var(--primary-color);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 0.5rem;
+        }
 
-    .section-label {
-      font-size: 0.7rem;
-      letter-spacing: 5px;
-      color: var(--accent);
-      text-transform: uppercase;
-      margin-bottom: 0.5rem;
-    }
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            color: #2c3e50;
+        }
 
-    .section-title {
-      font-size: 2.2rem;
-      font-weight: 900;
-      margin-bottom: 2.5rem;
-      color: #fff;
-    }
+        /* About */
+        .about-text {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            line-height: 1.8;
+        }
 
-    /* About */
-    .about-text {
-      font-size: 1.05rem;
-      line-height: 2;
-      color: var(--muted);
-      border-right: 3px solid var(--accent);
-      padding-right: 1.5rem;
-    }
+        .about-text strong {
+            color: var(--primary-color);
+        }
 
-    .about-text strong {
-      color: var(--text);
-    }
+        /* Interests */
+        .interests-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
 
-    /* Interests */
-    .interests-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-      gap: 1.2rem;
-    }
+        .interest-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            border-top: 4px solid transparent;
+            position: relative;
+            overflow: hidden;
+        }
 
-    .interest-card {
-      background: var(--card);
-      border: 1px solid rgba(255,255,255,0.05);
-      border-radius: 16px;
-      padding: 1.5rem;
-      transition: all 0.3s ease;
-      cursor: default;
-      position: relative;
-      overflow: hidden;
-    }
+        .interest-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
 
-    .interest-card::before {
-      content: '';
-      position: absolute;
-      top: 0; right: 0;
-      width: 60px; height: 60px;
-      background: var(--card-accent, var(--accent));
-      opacity: 0.08;
-      border-radius: 0 16px 0 60px;
-      transition: all 0.3s ease;
-    }
+        .interest-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--card-accent);
+        }
 
-    .interest-card:hover {
-      transform: translateY(-5px);
-      border-color: rgba(108,99,255,0.3);
-      box-shadow: 0 15px 30px rgba(0,0,0,0.3);
-    }
+        .interest-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
 
-    .interest-card:hover::before {
-      opacity: 0.15;
-      width: 100px;
-      height: 100px;
-    }
+        .interest-name {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: #2c3e50;
+        }
 
-    .interest-icon {
-      font-size: 2rem;
-      margin-bottom: 0.8rem;
-    }
+        .interest-desc {
+            color: #666;
+            font-size: 1.1rem;
+        }
 
-    .interest-name {
-      font-size: 1rem;
-      font-weight: 700;
-      color: #fff;
-      margin-bottom: 0.3rem;
-    }
+        /* Skills */
+        .skills-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            justify-content: center;
+            margin-top: 2rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
 
-    .interest-desc {
-      font-size: 0.8rem;
-      color: var(--muted);
-      line-height: 1.6;
-    }
+        .skill-tag {
+            padding: 0.8rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 500;
+            font-size: 1rem;
+            border: none;
+            cursor: default;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
 
-    /* Skills */
-    .skills-list {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.8rem;
-    }
+        .skill-tag:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
 
-    .skill-tag {
-      padding: 0.5rem 1.2rem;
-      border-radius: 50px;
-      font-size: 0.85rem;
-      font-weight: 600;
-      border: 1px solid;
-      transition: all 0.3s ease;
-    }
+        .purple { background: linear-gradient(135deg, #6c63ff, #a29bfe); color: white; }
+        .green { background: linear-gradient(135deg, #43e97b, #7be8a5); color: white; }
+        .pink { background: linear-gradient(135deg, #ff6584, #ff9ab0); color: white; }
 
-    .skill-tag:hover {
-      transform: scale(1.05);
-    }
+        /* Footer */
+        footer {
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            font-size: 1.1rem;
+        }
 
-    .skill-tag.purple { color: var(--accent); border-color: rgba(108,99,255,0.4); background: rgba(108,99,255,0.08); }
-    .skill-tag.pink { color: var(--accent2); border-color: rgba(255,101,132,0.4); background: rgba(255,101,132,0.08); }
-    .skill-tag.green { color: var(--accent3); border-color: rgba(67,233,123,0.4); background: rgba(67,233,123,0.08); }
+        /* Language Toggle */
+        .lang-toggle {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 1000;
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 0.8rem 1.2rem;
+            border-radius: 25px;
+            font-family: 'Cairo', sans-serif;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(108,99,255,0.4);
+        }
 
-    /* Footer */
-    footer {
-      text-align: center;
-      padding: 3rem 1rem;
-      color: var(--muted);
-      font-size: 0.85rem;
-      border-top: 1px solid rgba(255,255,255,0.05);
-      position: relative;
-      z-index: 1;
-    }
+        .lang-toggle:hover {
+            background: white;
+            color: var(--primary-color);
+            transform: translateY(-2px);
+        }
 
-    footer span {
-      color: var(--accent2);
-    }
+        /* English styles */
+        body.en {
+            font-family: 'Cairo', sans-serif;
+            direction: ltr;
+            text-align: left;
+        }
 
-    /* Divider */
-    .divider {
-      height: 1px;
-      background: linear-gradient(90deg, transparent, rgba(108,99,255,0.3), transparent);
-      margin: 0 auto;
-      max-width: 900px;
-    }
+        body.en .hero-section,
+        body.en .about-text {
+            text-align: center;
+        }
 
-    /* Scroll indicator */
-    .scroll-indicator {
-      position: absolute;
-      bottom: 2rem;
-      left: 50%;
-      transform: translateX(-50%);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 0.3rem;
-      color: var(--muted);
-      font-size: 0.7rem;
-      letter-spacing: 2px;
-      animation: bounce 2s ease-in-out infinite;
-    }
+        body.en .lang-toggle {
+            left: auto;
+            right: 20px;
+        }
 
-    @keyframes bounce {
-      0%, 100% { transform: translateX(-50%) translateY(0); }
-      50% { transform: translateX(-50%) translateY(8px); }
-    }
-  </style>
+        body.en .interests-grid {
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        }
+
+        body.en section {
+            text-align: left;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-name {
+                font-size: 2.5rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .social-links {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .skills-list {
+                justify-content: center;
+            }
+
+            .interests-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
 <body>
 
-  <!-- Hero -->
-  <section class="hero">
-    <div class="avatar"><img src="٢٠٢٥١٠١٨_١٥١٩٠٦.jpg" alt="محمد أبوبكر"></div>
-    <p class="hero-tag">مرحباً بك في صفحتي</p>
-    <h1 class="hero-name">محمد أبوبكر</h1>
-    <p class="hero-sub">طالب <span>كلية الحاسبات والمعلومات</span> · مبرمج ناشئ</p>
+    <button class="lang-toggle" onclick="toggleLang()">🇬🇧 English</button>
 
-    <div class="social-links">
-      <!-- ← ضع لينكاتك هنا -->
-      <a href="https://github.com/MoBakr111" class="social-btn" target="_blank">
-        🐙 GitHub
-      </a>
-      <a href="YOUR_INSTAGRAM_LINK" class="social-btn" target="_blank">
-        📸 Instagram
-      </a>
-      <a href="https://www.linkedin.com/in/mohammed-abu-bakr-a3a79934b?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" class="social-btn" target="_blank">
-        💼 LinkedIn
-      </a>
-      <!-- أضف أي لينك تاني هنا بنفس الشكل -->
-    </div>
+    <!-- Hero Section -->
+    <section class="hero-section" id="hero">
+        <h1 class="hero-name" id="hero-name">محمد أبوبكر<br><span style="font-weight: 300; font-size: 0.6em;">Mohamed Abu Bakr</span></h1>
+        <p class="hero-sub" id="hero-sub">طالب <span>كلية الحاسبات والمعلومات</span><br><small>Computer & Information Faculty Student · Aspiring Programmer</small></p>
 
-    <div class="scroll-indicator">
-      ↓ اسكرول
-    </div>
-  </section>
+        <div class="social-links">
+            <a href="https://github.com/MoBakr111" class="social-btn" target="_blank">
+                🐙 GitHub
+            </a>
+            <a href="YOUR_INSTAGRAM_LINK" class="social-btn" target="_blank">
+                📸 Instagram
+            </a>
+            <a href="https://www.linkedin.com/in/mohammed-abu-bakr-a3a79934b?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" class="social-btn" target="_blank">
+                💼 LinkedIn
+            </a>
+        </div>
 
-  <div class="divider"></div>
+        <div class="scroll-indicator" id="scroll-indicator">
+            ↓ اسكرول / Scroll
+        </div>
+    </section>
 
-  <!-- About -->
-  <section>
-    <p class="section-label">من أنا</p>
-    <h2 class="section-title">نبذة عني 👋</h2>
-    <p class="about-text">
-      أنا <strong>محمد أبوبكر</strong>، طالب في <strong>كلية الحاسبات والمعلومات</strong>.
-      شغوف بالتكنولوجيا والبرمجة، وبحاول كل يوم أتعلم حاجة جديدة.
-      بجمع بين حبي للكود والإبداع — سواء كان ده في التصوير أو الأفلام أو الروايات.
-      بؤمن إن الـ developer الكويس محتاج يكون متكامل، مش بس شايل لاب توب! 💪
-    </p>
-  </section>
+    <div class="divider"></div>
 
-  <div class="divider"></div>
+    <!-- About -->
+    <section id="about">
+        <p class="section-label" id="about-label">من أنا / About Me</p>
+        <h2 class="section-title" id="about-title">نبذة عني 👋<br><span style="font-weight: 300;">About Me</span></h2>
+        <p class="about-text" id="about-text">
+            أنا <strong>محمد أبوبكر</strong>، طالب في <strong>كلية الحاسبات والمعلومات</strong>.
+            شغوف بالتكنولوجيا والبرمجة، وبحاول كل يوم أتعلم حاجة جديدة.
+            بجمع بين حبي للكود والإبداع — سواء كان ده في التصوير أو الأفلام أو الروايات.
+            بؤمن إن الـ developer الكويس محتاج يكون متكامل، مش بس شايل لاب توب! 💪
+            <br><br>
+            <em>I'm <strong>Mohamed Abu Bakr</strong>, a student at the <strong>Faculty of Computers and Information</strong>.
+            Passionate about technology and programming, I try to learn something new every day.
+            I combine my love for code and creativity — whether in photography, movies, or novels.
+            I believe a good developer needs to be well-rounded, not just carrying a laptop! 💪</em>
+        </p>
+    </section>
 
-  <!-- Interests -->
-  <section>
-    <p class="section-label">اهتماماتي</p>
-    <h2 class="section-title">اللي بحبه ✨</h2>
-    <div class="interests-grid">
-      <div class="interest-card" style="--card-accent: #6c63ff">
-        <div class="interest-icon">💻</div>
-        <div class="interest-name">البرمجة والكود</div>
-        <div class="interest-desc">بحب أبني حاجات من الصفر وأشوفها شغالة</div>
-      </div>
-      <div class="interest-card" style="--card-accent: #ff6584">
-        <div class="interest-icon">📸</div>
-        <div class="interest-name">التصوير الفوتوغرافي</div>
-        <div class="interest-desc">بشوف العالم من زاوية مختلفة ليا</div>
-      </div>
-      <div class="interest-card" style="--card-accent: #f7971e">
-        <div class="interest-icon">🎬</div>
-        <div class="interest-name">الأفلام</div>
-        <div class="interest-desc">بعشق قصص بتغير طريقة تفكيرك</div>
-      </div>
-      <div class="interest-card" style="--card-accent: #43e97b">
-        <div class="interest-icon">⚽</div>
-        <div class="interest-name">كرة القدم</div>
-        <div class="interest-desc">الملعب بيعلمك روح الفريق والعزيمة</div>
-      </div>
-      <div class="interest-card" style="--card-accent: #a18cd1">
-        <div class="interest-icon">📚</div>
-        <div class="interest-name">روايات</div>
-        <div class="interest-desc">كل رواية رحلة لعالم تاني بالكامل</div>
-      </div>
-    </div>
-  </section>
+    <div class="divider"></div>
 
-  <div class="divider"></div>
+    <!-- Interests -->
+    <section id="interests">
+        <p class="section-label" id="interests-label">اهتماماتي / Interests</p>
+        <h2 class="section-title" id="interests-title">اللي بحبه ✨<br><span style="font-weight: 300;">What I Love</span></h2>
+        <div class="interests-grid">
+            <div class="interest-card" style="--card-accent: #6c63ff">
+                <div class="interest-icon">💻</div>
+                <div class="interest-name" data-ar="البرمجة والكود" data-en="Programming & Code">البرمجة والكود</div>
+                <div class="interest-desc" data-ar="بحب أبني حاجات من الصفر وأشوفها شغالة" data-en="I love building things from scratch and seeing them work">بحب أبني حاجات من الصفر وأشوفها شغالة</div>
+            </div>
+            <div class="interest-card" style="--card-accent: #ff6584">
+                <div class="interest-icon">📸</div>
+                <div class="interest-name" data-ar="التصوير الفوتوغرافي" data-en="Photography">التصوير الفوتوغرافي</div>
+                <div class="interest-desc" data-ar="بشوف العالم من زاوية مختلفة ليا" data-en="I see the world from a different angle">بشوف العالم من زاوية مختلفة ليا</div>
+            </div>
+            <div class="interest-card" style="--card-accent: #f7971e">
+                <div class="interest-icon">🎬</div>
+                <div class="interest-name" data-ar="الأفلام" data-en="Movies">الأفلام</div>
+                <div class="interest-desc" data-ar="بعشق قصص بتغير طريقة تفكيرك" data-en="I love stories that change your way of thinking">بعشق قصص بتغير طريقة تفكيرك</div>
+            </div>
+            <div class="interest-card" style="--card-accent: #43e97b">
+                <div class="interest-icon">⚽</div>
+                <div class="interest-name" data-ar="كرة القدم" data-en="Football">كرة القدم</div>
+                <div class="interest-desc" data-ar="الملعب بيعلمك روح الفريق والعزيمة" data-en="The field teaches you team spirit and determination">الملعب بيعلمك روح الفريق والعزيمة</div>
+            </div>
+            <div class="interest-card" style="--card-accent: #a18cd1">
+                <div class="interest-icon">📚</div>
+                <div class="interest-name" data-ar="روايات" data-en="Novels">روايات</div>
+                <div class="interest-desc" data-ar="كل رواية رحلة لعالم تاني بالكامل" data-en="Every novel is a journey to a completely different world">كل رواية رحلة لعالم تاني بالكامل</div>
+            </div>
+        </div>
+    </section>
 
-  <!-- Skills -->
-  <section>
-    <p class="section-label">المهارات</p>
-    <h2 class="section-title">بتعلم دلوقتي 🚀</h2>
-    <div class="skills-list">
-      <span class="skill-tag purple">HTML</span>
-      <span class="skill-tag purple">CSS</span>
-      <span class="skill-tag purple">JavaScript</span>
-      <span class="skill-tag green">GitHub</span>
-      <span class="skill-tag green">Git</span>
-      <span class="skill-tag pink">Problem Solving</span>
-      <span class="skill-tag pink">التفكير المنطقي</span>
-    </div>
-  </section>
+    <div class="divider"></div>
 
-  <!-- Footer -->
-  <footer>
-    صُنع بـ <span>♥</span> بواسطة محمد أبوبكر · 2025
-  </footer>
+    <!-- Skills -->
+    <section id="skills">
+        <p class="section-label" id="skills-label">المهارات / Skills</p>
+        <h2 class="section-title" id="skills-title">بتعلم دلوقتي 🚀<br><span style="font-weight: 300;">Learning Now</span></h2>
+        <div class="skills-list">
+            <span class="skill-tag purple" data-ar="HTML" data-en="HTML">HTML</span>
+            <span class="skill-tag purple" data-ar="CSS" data-en="CSS">CSS</span>
+            <span class="skill-tag purple" data-ar="JavaScript" data-en="JavaScript">JavaScript</span>
+            <span class="skill-tag green" data-ar="GitHub" data-en="GitHub">GitHub</span>
+            <span class="skill-tag green" data-ar="Git" data-en="Git">Git</span>
+            <span class="skill-tag pink" data-ar="Problem Solving" data-en="Problem Solving">Problem Solving</span>
+            <span class="skill-tag pink" data-ar="التفكير المنطقي" data-en="Logical Thinking">التفكير المنطقي</span>
+        </div>
+    </section>
 
+    <!-- Footer -->
+    <footer id="footer">
+        صُنع بـ <span>♥</span> بواسطة محمد أبوبكر · 2025<br>
+        Made with <span>♥</span> by Mohamed Abu Bakr · 2025
+    </footer>
+
+    <script>
+        let isEnglish = false;
+
+        function toggleLang() {
+            isEnglish = !isEnglish;
+            document.body.classList.toggle('en', isEnglish);
+            document.documentElement.lang = isEnglish ? 'en' : 'ar';
+            document.documentElement.dir = isEnglish ? 'ltr' : 'rtl';
+
+            // Update button
+            const btn = document.querySelector('.lang-toggle');
+            btn.textContent = isEnglish ? '🇸🇦 العربية' : '🇬🇧 English';
+
+            // Update static texts
+            const elements = {
+                'hero-name': isEnglish ? 'Mohamed Abu Bakr' : 'محمد أبوبكر',
+                // Note: hero-name has br, but we update main
+                'hero-sub': isEnglish ? 'Computer & Information Faculty Student · Aspiring Programmer' : 'طالب كلية الحاسبات والمعلومات · مبرمج ناشئ',
+                'scroll-indicator': isEnglish ? '↓ Scroll' : '↓ اسكرول',
+                'about-label': isEnglish ? 'About Me' : 'من أنا',
+                'about-title': isEnglish ? 'About Me 👋' : 'نبذة عني 👋',
+                'interests-label': isEnglish ? 'Interests' : 'اهتماماتي',
+                'interests-title': isEnglish ? 'What I Love ✨' : 'اللي بحبه ✨',
+                'skills-label': isEnglish ? 'Skills' : 'المهارات',
+                'skills-title': isEnglish ? 'Learning Now 🚀' : 'بتعلم دلوقتي 🚀',
+                'footer': isEnglish ? 'Made with ♥ by Mohamed Abu Bakr · 2025' : 'صُنع بـ ♥ بواسطة محمد أبوبكر · 2025'
+            };
+
+            Object.entries(elements).forEach(([id, text]) => {
+                const el = document.getElementById(id);
+                if (el) {
+                    if (id === 'hero-name') {
+                        el.innerHTML = isEnglish ? 'Mohamed Abu Bakr<br><span style="font-weight: 300; font-size: 0.6em;">محمد أبوبكر</span>' : 'محمد أبوبكر<br><span style="font-weight: 300; font-size: 0.6em;">Mohamed Abu Bakr</span>';
+                    } else if (id === 'hero-sub') {
+                        el.innerHTML = isEnglish ? 'Computer & Information Faculty Student · Aspiring Programmer<br><small>طالب <span>كلية الحاسبات والمعلومات</span> · مبرمج ناشئ</small>' : 'طالب <span>كلية الحاسبات والمعلومات</span> · مبرمج ناشئ<br><small>Computer & Information Faculty Student · Aspiring Programmer</small>';
+                    } else if (id === 'about-text') {
+                        // about-text has both, no change needed as it already has both
+                    } else {
+                        el.textContent = text;
+                    }
+                }
+            });
+
+            // Update data attributes for interests and skills
+            document.querySelectorAll('[data-ar]').forEach(el => {
+                el.textContent = isEnglish ? el.dataset.en : el.dataset.ar;
+            });
+        }
+
+        // Smooth scrolling for scroll indicator
+        document.querySelector('.scroll-indicator').addEventListener('click', () => {
+            document.getElementById('about').scrollIntoView({ behavior: 'smooth' });
+        });
+    </script>
 </body>
 </html>

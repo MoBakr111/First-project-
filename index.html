@@ -1,11 +1,422 @@
 <!DOCTYPE html>
-<html lang="ar">
+<html lang="ar" dir="rtl">
 <head>
   <meta charset="UTF-8">
-  <title>أول مشروع</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>محمد أبوبكر</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&family=Bebas+Neue&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0a0a0f;
+      --surface: #12121a;
+      --card: #1a1a26;
+      --accent: #6c63ff;
+      --accent2: #ff6584;
+      --accent3: #43e97b;
+      --text: #e8e8f0;
+      --muted: #7070a0;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Cairo', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      overflow-x: hidden;
+    }
+
+    /* Background */
+    body::before {
+      content: '';
+      position: fixed;
+      top: -50%;
+      right: -20%;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(108,99,255,0.12) 0%, transparent 70%);
+      pointer-events: none;
+      z-index: 0;
+    }
+    body::after {
+      content: '';
+      position: fixed;
+      bottom: -30%;
+      left: -10%;
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, rgba(255,101,132,0.08) 0%, transparent 70%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* Hero */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 2rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .avatar {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3rem;
+      margin-bottom: 1.5rem;
+      box-shadow: 0 0 40px rgba(108,99,255,0.4);
+      animation: pulse 3s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { box-shadow: 0 0 40px rgba(108,99,255,0.4); }
+      50% { box-shadow: 0 0 60px rgba(108,99,255,0.7); }
+    }
+
+    .hero-tag {
+      font-size: 0.75rem;
+      letter-spacing: 4px;
+      color: var(--accent);
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+      opacity: 0;
+      animation: fadeUp 0.8s ease forwards 0.2s;
+    }
+
+    .hero-name {
+      font-size: clamp(2.5rem, 8vw, 5rem);
+      font-weight: 900;
+      line-height: 1;
+      margin-bottom: 0.5rem;
+      opacity: 0;
+      animation: fadeUp 0.8s ease forwards 0.4s;
+      background: linear-gradient(135deg, #fff 40%, var(--accent));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero-sub {
+      font-size: 1.1rem;
+      color: var(--muted);
+      margin-bottom: 2rem;
+      opacity: 0;
+      animation: fadeUp 0.8s ease forwards 0.6s;
+    }
+
+    .hero-sub span {
+      color: var(--accent3);
+      font-weight: 600;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      opacity: 0;
+      animation: fadeUp 0.8s ease forwards 0.8s;
+    }
+
+    .social-btn {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.6rem 1.2rem;
+      border-radius: 50px;
+      border: 1px solid rgba(108,99,255,0.3);
+      color: var(--text);
+      text-decoration: none;
+      font-family: 'Cairo', sans-serif;
+      font-size: 0.85rem;
+      transition: all 0.3s ease;
+      background: rgba(108,99,255,0.05);
+    }
+
+    .social-btn:hover {
+      background: var(--accent);
+      border-color: var(--accent);
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(108,99,255,0.3);
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Sections */
+    section {
+      padding: 5rem 1.5rem;
+      max-width: 900px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    .section-label {
+      font-size: 0.7rem;
+      letter-spacing: 5px;
+      color: var(--accent);
+      text-transform: uppercase;
+      margin-bottom: 0.5rem;
+    }
+
+    .section-title {
+      font-size: 2.2rem;
+      font-weight: 900;
+      margin-bottom: 2.5rem;
+      color: #fff;
+    }
+
+    /* About */
+    .about-text {
+      font-size: 1.05rem;
+      line-height: 2;
+      color: var(--muted);
+      border-right: 3px solid var(--accent);
+      padding-right: 1.5rem;
+    }
+
+    .about-text strong {
+      color: var(--text);
+    }
+
+    /* Interests */
+    .interests-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 1.2rem;
+    }
+
+    .interest-card {
+      background: var(--card);
+      border: 1px solid rgba(255,255,255,0.05);
+      border-radius: 16px;
+      padding: 1.5rem;
+      transition: all 0.3s ease;
+      cursor: default;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .interest-card::before {
+      content: '';
+      position: absolute;
+      top: 0; right: 0;
+      width: 60px; height: 60px;
+      background: var(--card-accent, var(--accent));
+      opacity: 0.08;
+      border-radius: 0 16px 0 60px;
+      transition: all 0.3s ease;
+    }
+
+    .interest-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(108,99,255,0.3);
+      box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+    }
+
+    .interest-card:hover::before {
+      opacity: 0.15;
+      width: 100px;
+      height: 100px;
+    }
+
+    .interest-icon {
+      font-size: 2rem;
+      margin-bottom: 0.8rem;
+    }
+
+    .interest-name {
+      font-size: 1rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 0.3rem;
+    }
+
+    .interest-desc {
+      font-size: 0.8rem;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    /* Skills */
+    .skills-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+    }
+
+    .skill-tag {
+      padding: 0.5rem 1.2rem;
+      border-radius: 50px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      border: 1px solid;
+      transition: all 0.3s ease;
+    }
+
+    .skill-tag:hover {
+      transform: scale(1.05);
+    }
+
+    .skill-tag.purple { color: var(--accent); border-color: rgba(108,99,255,0.4); background: rgba(108,99,255,0.08); }
+    .skill-tag.pink { color: var(--accent2); border-color: rgba(255,101,132,0.4); background: rgba(255,101,132,0.08); }
+    .skill-tag.green { color: var(--accent3); border-color: rgba(67,233,123,0.4); background: rgba(67,233,123,0.08); }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 3rem 1rem;
+      color: var(--muted);
+      font-size: 0.85rem;
+      border-top: 1px solid rgba(255,255,255,0.05);
+      position: relative;
+      z-index: 1;
+    }
+
+    footer span {
+      color: var(--accent2);
+    }
+
+    /* Divider */
+    .divider {
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(108,99,255,0.3), transparent);
+      margin: 0 auto;
+      max-width: 900px;
+    }
+
+    /* Scroll indicator */
+    .scroll-indicator {
+      position: absolute;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.3rem;
+      color: var(--muted);
+      font-size: 0.7rem;
+      letter-spacing: 2px;
+      animation: bounce 2s ease-in-out infinite;
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateX(-50%) translateY(0); }
+      50% { transform: translateX(-50%) translateY(8px); }
+    }
+  </style>
 </head>
 <body>
-  <h1>مرحباً بالعالم!</h1>
-  <p>أول مشروع ليا على GitHub 🚀</p>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="avatar">👨‍💻</div>
+    <p class="hero-tag">مرحباً بك في صفحتي</p>
+    <h1 class="hero-name">محمد أبوبكر</h1>
+    <p class="hero-sub">طالب <span>كلية الحاسبات والمعلومات</span> · مبرمج ناشئ</p>
+
+    <div class="social-links">
+      <!-- ← ضع لينكاتك هنا -->
+      <a href="https://github.com/MoBakr111" class="social-btn" target="_blank">
+        🐙 GitHub
+      </a>
+      <a href="YOUR_INSTAGRAM_LINK" class="social-btn" target="_blank">
+        📸 Instagram
+      </a>
+      <a href="https://www.linkedin.com/in/mohammed-abu-bakr-a3a79934b?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" class="social-btn" target="_blank">
+        💼 LinkedIn
+      </a>
+      <!-- أضف أي لينك تاني هنا بنفس الشكل -->
+    </div>
+
+    <div class="scroll-indicator">
+      ↓ اسكرول
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- About -->
+  <section>
+    <p class="section-label">من أنا</p>
+    <h2 class="section-title">نبذة عني 👋</h2>
+    <p class="about-text">
+      أنا <strong>محمد أبوبكر</strong>، طالب في <strong>كلية الحاسبات والمعلومات</strong>.
+      شغوف بالتكنولوجيا والبرمجة، وبحاول كل يوم أتعلم حاجة جديدة.
+      بجمع بين حبي للكود والإبداع — سواء كان ده في التصوير أو الأفلام أو الروايات.
+      بؤمن إن الـ developer الكويس محتاج يكون متكامل، مش بس شايل لاب توب! 💪
+    </p>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- Interests -->
+  <section>
+    <p class="section-label">اهتماماتي</p>
+    <h2 class="section-title">اللي بحبه ✨</h2>
+    <div class="interests-grid">
+      <div class="interest-card" style="--card-accent: #6c63ff">
+        <div class="interest-icon">💻</div>
+        <div class="interest-name">البرمجة والكود</div>
+        <div class="interest-desc">بحب أبني حاجات من الصفر وأشوفها شغالة</div>
+      </div>
+      <div class="interest-card" style="--card-accent: #ff6584">
+        <div class="interest-icon">📸</div>
+        <div class="interest-name">التصوير الفوتوغرافي</div>
+        <div class="interest-desc">بشوف العالم من زاوية مختلفة ليا</div>
+      </div>
+      <div class="interest-card" style="--card-accent: #f7971e">
+        <div class="interest-icon">🎬</div>
+        <div class="interest-name">الأفلام</div>
+        <div class="interest-desc">بعشق قصص بتغير طريقة تفكيرك</div>
+      </div>
+      <div class="interest-card" style="--card-accent: #43e97b">
+        <div class="interest-icon">⚽</div>
+        <div class="interest-name">كرة القدم</div>
+        <div class="interest-desc">الملعب بيعلمك روح الفريق والعزيمة</div>
+      </div>
+      <div class="interest-card" style="--card-accent: #a18cd1">
+        <div class="interest-icon">📚</div>
+        <div class="interest-name">روايات</div>
+        <div class="interest-desc">كل رواية رحلة لعالم تاني بالكامل</div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- Skills -->
+  <section>
+    <p class="section-label">المهارات</p>
+    <h2 class="section-title">بتعلم دلوقتي 🚀</h2>
+    <div class="skills-list">
+      <span class="skill-tag purple">HTML</span>
+      <span class="skill-tag purple">CSS</span>
+      <span class="skill-tag purple">JavaScript</span>
+      <span class="skill-tag green">GitHub</span>
+      <span class="skill-tag green">Git</span>
+      <span class="skill-tag pink">Problem Solving</span>
+      <span class="skill-tag pink">التفكير المنطقي</span>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    صُنع بـ <span>♥</span> بواسطة محمد أبوبكر · 2025
+  </footer>
+
 </body>
 </html>

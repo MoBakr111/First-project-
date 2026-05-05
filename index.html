@@ -30,7 +30,6 @@
       transition: all 0.3s ease;
     }
 
-    /* الخلفية الملونة */
     body::before {
       content: '';
       position: fixed;
@@ -40,7 +39,6 @@
       z-index: -1;
     }
 
-    /* زر تغيير اللغة */
     .lang-switcher {
       position: fixed;
       top: 20px;
@@ -59,7 +57,6 @@
     }
     .lang-switcher:hover { background: var(--accent); }
 
-    /* الهيرو */
     .hero {
       min-height: 100vh;
       display: flex;
@@ -84,8 +81,7 @@
     }
 
     .avatar img {
-      width: 100%;
-      height: 100%;
+      width: 100%; height: 100%;
       border-radius: 50%;
       object-fit: cover;
       border: 3px solid var(--bg);
@@ -103,10 +99,10 @@
     .hero-sub { font-size: 1.1rem; color: var(--muted); margin-bottom: 2.5rem; }
     .hero-sub span { color: var(--accent3); font-weight: 700; }
 
-    /* الزراير الزجاجية */
+    /* رجعتلك الـ Style القديم للزراير هنا */
     .social-links {
       display: flex;
-      gap: 12px;
+      gap: 1rem;
       justify-content: center;
       flex-wrap: wrap;
     }
@@ -114,40 +110,30 @@
     .social-btn {
       display: flex;
       align-items: center;
-      gap: 8px;
-      padding: 12px 22px;
-      border-radius: 14px;
-      border: 1px solid rgba(255, 255, 255, 0.1);
+      gap: 0.5rem;
+      padding: 0.6rem 1.4rem;
+      border-radius: 50px; /* الشكل الدائري Capsule */
+      border: 1px solid rgba(108,99,255,0.3);
       color: var(--text);
       text-decoration: none;
-      font-size: 0.95rem;
-      font-weight: 700;
-      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-      background: rgba(255, 255, 255, 0.05);
-      backdrop-filter: blur(10px);
+      font-size: 0.9rem;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      background: rgba(108,99,255,0.05);
     }
 
     .social-btn:hover {
-      transform: translateY(-5px) scale(1.05);
+      background: var(--accent);
+      border-color: var(--accent);
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(108,99,255,0.3);
       color: white;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
     }
 
-    /* ألوان البراندات عند الـ Hover */
-    .btn-fb:hover { background: #1877f2; border-color: #1877f2; }
-    .btn-ig:hover { background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); border-color: #e4405f; }
-    .btn-li:hover { background: #0077b5; border-color: #0077b5; }
-    .btn-gh:hover { background: #333; border-color: #555; }
-
-    /* الأقسام */
     section { padding: 5rem 1.5rem; max-width: 900px; margin: 0 auto; }
     .section-title { 
-      font-size: 2rem; 
-      font-weight: 800; 
-      margin-bottom: 2rem; 
-      color: #fff; 
-      border-right: 5px solid var(--accent); 
-      padding-right: 15px; 
+      font-size: 2rem; font-weight: 800; margin-bottom: 2rem; color: #fff; 
+      border-right: 5px solid var(--accent); padding-right: 15px; 
     }
     
     html[dir="ltr"] .section-title { border-right: none; border-left: 5px solid var(--accent); padding-right: 0; padding-left: 15px; }
@@ -155,24 +141,18 @@
 
     .about-text { font-size: 1.15rem; line-height: 1.9; color: var(--muted); text-align: justify; }
 
-    .interests-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 1.5rem; }
+    .interests-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 1.5rem; }
     .interest-card {
-      background: var(--card);
-      border-radius: 20px;
-      padding: 1.5rem;
-      border: 1px solid rgba(255,255,255,0.03);
-      transition: 0.3s;
+      background: var(--card); border-radius: 20px; padding: 1.5rem;
+      border: 1px solid rgba(255,255,255,0.03); transition: 0.3s;
     }
     .interest-card:hover { border-color: var(--accent); transform: translateY(-5px); }
 
     .skills-list { display: flex; flex-wrap: wrap; gap: 10px; }
     .skill-tag { 
-      padding: 8px 18px; 
-      border-radius: 50px; 
-      background: rgba(108,99,255,0.1); 
-      border: 1px solid var(--accent); 
-      color: var(--accent); 
-      font-weight: 700;
+      padding: 8px 18px; border-radius: 50px; 
+      background: rgba(108,99,255,0.1); border: 1px solid var(--accent); 
+      color: var(--accent); font-weight: 700;
     }
 
     footer { text-align: center; padding: 4rem; color: var(--muted); border-top: 1px solid rgba(255,255,255,0.05); }
@@ -185,113 +165,4 @@
   <header class="hero">
     <div class="avatar"><img src="٢٠٢٥١٠١٨_١٥١٩٠٦.jpg" alt="محمد"></div>
     <p class="hero-tag" data-key="welcome">مرحباً بك في صفحتي</p>
-    <h1 class="hero-name" data-key="name">محمد أبوبكر</h1>
-    <p class="hero-sub"><span data-key="status">طالب حاسبات ومعلومات</span> · <span data-key="title">مبرمج ناشئ</span></p>
-
-    <div class="social-links">
-      <a href="https://facebook.com/YOUR_USERNAME" class="social-btn btn-fb" target="_blank">Facebook</a>
-      <a href="https://instagram.com/YOUR_USERNAME" class="social-btn btn-ig" target="_blank">Instagram</a>
-      <a href="https://linkedin.com/in/mohammed-abu-bakr-a3a79934b" class="social-btn btn-li" target="_blank">LinkedIn</a>
-      <a href="https://github.com/MoBakr111" class="social-btn btn-gh" target="_blank">GitHub</a>
-    </div>
-  </header>
-
-  <section>
-    <h2 class="section-title" data-key="aboutTitle">نبذة عني 👋</h2>
-    <p class="about-text" data-key="aboutDesc">
-        أنا محمد أبوبكر، طالب في كلية الحاسبات والمعلومات . شغوف بالتكنولوجيا والبرمجة، وبحاول كل يوم أتعلم حاجة جديدة في عالم الـ Computer Science.
-    </p>
-  </section>
-
-  <section>
-    <h2 class="section-title" data-key="interestsTitle">اهتماماتي ✨</h2>
-    <div class="interests-grid" id="interests-container"></div>
-  </section>
-
-  <section>
-    <h2 class="section-title" data-key="skillsTitle">المهارات 🚀</h2>
-    <div class="skills-list">
-      <span class="skill-tag">HTML5 / CSS3</span>
-      <span class="skill-tag">JavaScript</span>
-      <span class="skill-tag">C++ & Programming</span>
-      <span class="skill-tag">Git & GitHub</span>
-    </div>
-  </section>
-
-  <footer>
-    <p><span data-key="footer">صُنع بـ ♥ بواسطة محمد أبوبكر</span> · 5/5/2026</p>
-  </footer>
-
-  <script>
-    const translations = {
-      ar: {
-        welcome: "مرحباً بك في صفحتي",
-        name: "محمد أبوبكر",
-        status: "طالب كلية الحاسبات والمعلومات",
-        title: "مبرمج ناشئ",
-        aboutTitle: "نبذة عني 👋",
-        aboutDesc: "أنا محمد أبوبكر، طالب في كلية الحاسبات والمعلومات. شغوف بالتكنولوجيا والبرمجة، وبحاول كل يوم أتعلم حاجة جديدة. بجمع بين حبي للكود والإبداع — سواء كان ده في التصوير أو الأفلام أو الروايات.",
-        interestsTitle: "اهتماماتي ✨",
-        skillsTitle: "المهارات 🚀",
-        footer: "صُنع بـ ♥ بواسطة محمد أبوبكر",
-        langBtn: "English",
-        interests: [
-          { icon: "💻", name: "البرمجة", des: "تحويل الأفكار المعقدة إلى واقع ملموس من خلال الكود" },
-          { icon: "📸", name: "التصوير", desc: "توثيق اللحظات العابرة من منظور فني خاص" },
-          { icon: "🎬", name: "الأفلام", desc: "استكشاف عوالم جديدة وقصص تُلهم التفكير الإبداعي" },
-          { icon: "⚽", name: "الرياضة", desc: "بعشق الجيم، بناء الانضباط، القوة، وروح الفريق والمنافسة" }
-        ]
-      },
-      en: {
-        welcome: "Welcome to my space",
-        name: "Mohamed Abu Bakr",
-        status: "Computer Science Student",
-        title: "Junior Developer",
-        aboutTitle: "About Me 👋",
-        aboutDesc: "I am Mohamed Abu Bakr, a CS student at . I am passionate about technology and coding, constantly exploring new horizons in software development and creativity.",
-        interestsTitle: "Interests ✨",
-        skillsTitle: "Skills 🚀",
-        footer: "Made with ♥ by Mohamed Abu Bakr",
-        langBtn: "عربي",
-        interests: [
-          { icon: "💻", name: "Coding", desc: "Turning complex ideas into reality through clean code" },
-          { icon: "📸", name: "Photography", desc: "Capturing fleeting moments through a unique artistic lens" },
-          { icon: "🎬", name: "Movies", desc: "Exploring new worlds and stories that inspire creative thinking" },
-          { icon: "🏋‍♂️", name: "Sports", desc: "I love the gym; building discipline, strength, and competitive spirit" }
-        ]
-      }
-    };
-
-    let currentLang = 'ar';
-
-    function toggleLanguage() {
-      currentLang = currentLang === 'ar' ? 'en' : 'ar';
-      const html = document.getElementById('main-html');
-      html.dir = currentLang === 'ar' ? 'rtl' : 'ltr';
-      html.lang = currentLang;
-      
-      document.querySelectorAll('[data-key]').forEach(el => {
-        const key = el.getAttribute('data-key');
-        el.innerText = translations[currentLang][key];
-      });
-
-      document.getElementById('lang-btn').innerText = translations[currentLang].langBtn;
-      renderInterests();
-    }
-
-    function renderInterests() {
-      const container = document.getElementById('interests-container');
-      container.innerHTML = translations[currentLang].interests.map(item => `
-        <div class="interest-card">
-          <div style="font-size: 2.5rem; margin-bottom: 10px">${item.icon}</div>
-          <strong style="display: block; color: #fff; margin-bottom: 5px">${item.name}</strong>
-          <p style="font-size: 0.85rem; color: #7070a0">${item.desc}</p>
-        </div>
-      `).join('');
-    }
-
-    renderInterests();
-  </script>
-</body>
-</html>
 

@@ -30,7 +30,6 @@
       transition: all 0.3s ease;
     }
 
-    /* الخلفية الملونة */
     body::before {
       content: '';
       position: fixed;
@@ -40,7 +39,6 @@
       z-index: -1;
     }
 
-    /* زر تغيير اللغة */
     .lang-switcher {
       position: fixed;
       top: 20px;
@@ -59,7 +57,6 @@
     }
     .lang-switcher:hover { background: var(--accent); }
 
-    /* الهيرو */
     .hero {
       min-height: 100vh;
       display: flex;
@@ -84,8 +81,7 @@
     }
 
     .avatar img {
-      width: 100%;
-      height: 100%;
+      width: 100%; height: 100%;
       border-radius: 50%;
       object-fit: cover;
       border: 3px solid var(--bg);
@@ -103,10 +99,9 @@
     .hero-sub { font-size: 1.1rem; color: var(--muted); margin-bottom: 2.5rem; }
     .hero-sub span { color: var(--accent3); font-weight: 700; }
 
-    /* الزراير الزجاجية */
     .social-links {
       display: flex;
-      gap: 12px;
+      gap: 1rem;
       justify-content: center;
       flex-wrap: wrap;
     }
@@ -114,40 +109,30 @@
     .social-btn {
       display: flex;
       align-items: center;
-      gap: 8px;
-      padding: 12px 22px;
-      border-radius: 14px;
-      border: 1px solid rgba(255, 255, 255, 0.1);
+      gap: 0.5rem;
+      padding: 0.6rem 1.4rem;
+      border-radius: 50px;
+      border: 1px solid rgba(108,99,255,0.3);
       color: var(--text);
       text-decoration: none;
-      font-size: 0.95rem;
-      font-weight: 700;
-      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-      background: rgba(255, 255, 255, 0.05);
-      backdrop-filter: blur(10px);
+      font-size: 0.9rem;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      background: rgba(108,99,255,0.05);
     }
 
     .social-btn:hover {
-      transform: translateY(-5px) scale(1.05);
+      background: var(--accent);
+      border-color: var(--accent);
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(108,99,255,0.3);
       color: white;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
     }
 
-    /* ألوان البراندات عند الـ Hover */
-    .btn-fb:hover { background: #1877f2; border-color: #1877f2; }
-    .btn-ig:hover { background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); border-color: #e4405f; }
-    .btn-li:hover { background: #0077b5; border-color: #0077b5; }
-    .btn-gh:hover { background: #333; border-color: #555; }
-
-    /* الأقسام */
     section { padding: 5rem 1.5rem; max-width: 900px; margin: 0 auto; }
     .section-title { 
-      font-size: 2rem; 
-      font-weight: 800; 
-      margin-bottom: 2rem; 
-      color: #fff; 
-      border-right: 5px solid var(--accent); 
-      padding-right: 15px; 
+      font-size: 2rem; font-weight: 800; margin-bottom: 2rem; color: #fff; 
+      border-right: 5px solid var(--accent); padding-right: 15px; 
     }
     
     html[dir="ltr"] .section-title { border-right: none; border-left: 5px solid var(--accent); padding-right: 0; padding-left: 15px; }
@@ -155,24 +140,18 @@
 
     .about-text { font-size: 1.15rem; line-height: 1.9; color: var(--muted); text-align: justify; }
 
-    .interests-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 1.5rem; }
+    .interests-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 1.5rem; }
     .interest-card {
-      background: var(--card);
-      border-radius: 20px;
-      padding: 1.5rem;
-      border: 1px solid rgba(255,255,255,0.03);
-      transition: 0.3s;
+      background: var(--card); border-radius: 20px; padding: 1.5rem;
+      border: 1px solid rgba(255,255,255,0.03); transition: 0.3s;
     }
     .interest-card:hover { border-color: var(--accent); transform: translateY(-5px); }
 
     .skills-list { display: flex; flex-wrap: wrap; gap: 10px; }
     .skill-tag { 
-      padding: 8px 18px; 
-      border-radius: 50px; 
-      background: rgba(108,99,255,0.1); 
-      border: 1px solid var(--accent); 
-      color: var(--accent); 
-      font-weight: 700;
+      padding: 8px 18px; border-radius: 50px; 
+      background: rgba(108,99,255,0.1); border: 1px solid var(--accent); 
+      color: var(--accent); font-weight: 700;
     }
 
     footer { text-align: center; padding: 4rem; color: var(--muted); border-top: 1px solid rgba(255,255,255,0.05); }
@@ -186,20 +165,20 @@
     <div class="avatar"><img src="٢٠٢٥١٠١٨_١٥١٩٠٦.jpg" alt="محمد"></div>
     <p class="hero-tag" data-key="welcome">مرحباً بك في صفحتي</p>
     <h1 class="hero-name" data-key="name">محمد أبوبكر</h1>
-    <p class="hero-sub"><span data-key="status">طالب حاسبات ومعلومات</span> · <span data-key="title">مبرمج ناشئ</span></p>
+    <p class="hero-sub"><span data-key="status">طالب كلية الحاسبات والمعلومات</span> · <span data-key="title">مبرمج ناشئ</span></p>
 
     <div class="social-links">
-      <a href="https://facebook.com/YOUR_USERNAME" class="social-btn btn-fb" target="_blank">Facebook</a>
-      <a href="https://instagram.com/YOUR_USERNAME" class="social-btn btn-ig" target="_blank">Instagram</a>
-      <a href="https://linkedin.com/in/mohammed-abu-bakr-a3a79934b" class="social-btn btn-li" target="_blank">LinkedIn</a>
-      <a href="https://github.com/MoBakr111" class="social-btn btn-gh" target="_blank">GitHub</a>
+      <a href="https://facebook.com/YOUR_USERNAME" class="social-btn" target="_blank">Facebook</a>
+      <a href="https://instagram.com/YOUR_USERNAME" class="social-btn" target="_blank">Instagram</a>
+      <a href="https://linkedin.com/in/mohammed-abu-bakr-a3a79934b" class="social-btn" target="_blank">LinkedIn</a>
+      <a href="https://github.com/MoBakr111" class="social-btn" target="_blank">GitHub</a>
     </div>
   </header>
 
   <section>
     <h2 class="section-title" data-key="aboutTitle">نبذة عني 👋</h2>
     <p class="about-text" data-key="aboutDesc">
-        أنا محمد أبوبكر، طالب في كلية الحاسبات والمعلومات . شغوف بالتكنولوجيا والبرمجة، وبحاول كل يوم أتعلم حاجة جديدة في عالم الـ Computer Science.
+        أنا محمد أبوبكر، طالب في كلية الحاسبات والمعلومات. شغوف بالتكنولوجيا والبرمجة، وبحاول كل يوم أتعلم حاجة جديدة في عالم الـ Computer Science.
     </p>
   </section>
 
@@ -239,7 +218,7 @@
           { icon: "💻", name: "البرمجة", desc: "تحويل الأفكار المعقدة إلى واقع ملموس من خلال الكود" },
           { icon: "📸", name: "التصوير", desc: "توثيق اللحظات العابرة من منظور فني خاص" },
           { icon: "🎬", name: "الأفلام", desc: "استكشاف عوالم جديدة وقصص تُلهم التفكير الإبداعي" },
-          { icon: "🏋‍♂️", name: "الرياضة", desc: "بعشق الجيم، بناء الانضباط، القوة، وروح الفريق والمنافسة" }
+          { icon: "🏋️‍♂️", name: "الرياضة", desc: "بعشق الجيم، بناء الانضباط، القوة، وروح الفريق والمنافسة" }
         ]
       },
       en: {
@@ -257,7 +236,7 @@
           { icon: "💻", name: "Coding", desc: "Turning complex ideas into reality through clean code" },
           { icon: "📸", name: "Photography", desc: "Capturing fleeting moments through a unique artistic lens" },
           { icon: "🎬", name: "Movies", desc: "Exploring new worlds and stories that inspire creative thinking" },
-          { icon: "🏋‍♂️", name: "Sports", desc: "I love the gym; building discipline, strength, and competitive spirit" }
+          { icon: "🏋️‍♂️", name: "Sports", desc: "I love the gym; building discipline, strength, and competitive spirit" }
         ]
       }
     };
@@ -272,7 +251,9 @@
       
       document.querySelectorAll('[data-key]').forEach(el => {
         const key = el.getAttribute('data-key');
-        el.innerText = translations[currentLang][key];
+        if (translations[currentLang][key]) {
+            el.innerText = translations[currentLang][key];
+        }
       });
 
       document.getElementById('lang-btn').innerText = translations[currentLang].langBtn;
@@ -294,4 +275,3 @@
   </script>
 </body>
 </html>
-

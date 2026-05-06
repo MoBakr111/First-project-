@@ -140,6 +140,23 @@
 
     .about-text { font-size: 1.15rem; line-height: 1.9; color: var(--muted); text-align: justify; }
 
+    .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; }
+    .project-card {
+      background: var(--card); border-radius: 20px; padding: 2rem;
+      border: 1px solid rgba(255,255,255,0.03); transition: 0.3s;
+      display: flex; flex-direction: column; justify-content: space-between;
+    }
+    .project-card:hover { border-color: var(--accent); transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.3); }
+    .project-card h3 { color: #fff; margin-bottom: 10px; font-size: 1.4rem;}
+    .project-card p { color: var(--muted); font-size: 0.95rem; margin-bottom: 25px; line-height: 1.6; }
+    .project-btn {
+      display: inline-block; padding: 10px 20px; border-radius: 10px;
+      background: rgba(108,99,255,0.1); color: white;
+      text-decoration: none; font-weight: bold; align-self: flex-start;
+      transition: 0.3s; border: 1px solid var(--accent); font-size: 0.9rem;
+    }
+    .project-btn:hover { background: var(--accent); }
+
     .interests-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 1.5rem; }
     .interest-card {
       background: var(--card); border-radius: 20px; padding: 1.5rem;
@@ -153,6 +170,27 @@
       background: rgba(108,99,255,0.1); border: 1px solid var(--accent); 
       color: var(--accent); font-weight: 700;
     }
+
+    /* فورم التواصل */
+    .contact-container {
+      background: var(--card); border-radius: 20px; padding: 2.5rem;
+      border: 1px solid rgba(255,255,255,0.03); margin-top: 1rem;
+    }
+    .form-group { margin-bottom: 1.5rem; }
+    .form-label { display: block; margin-bottom: 0.8rem; color: var(--text); font-weight: bold; }
+    .form-control {
+      width: 100%; padding: 14px 18px; border-radius: 12px;
+      background: rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.1);
+      color: white; font-family: inherit; font-size: 1rem; outline: none; transition: 0.3s;
+    }
+    .form-control:focus { border-color: var(--accent); box-shadow: 0 0 15px rgba(108,99,255,0.15); }
+    textarea.form-control { resize: vertical; min-height: 130px; }
+    .submit-btn {
+      background: var(--accent); color: white; border: none;
+      padding: 14px 25px; border-radius: 12px; font-weight: bold;
+      cursor: pointer; width: 100%; font-family: inherit; transition: 0.3s; font-size: 1.1rem;
+    }
+    .submit-btn:hover { background: #584df0; transform: translateY(-3px); box-shadow: 0 10px 20px rgba(108,99,255,0.3); }
 
     footer { text-align: center; padding: 4rem; color: var(--muted); border-top: 1px solid rgba(255,255,255,0.05); }
   </style>
@@ -178,8 +216,24 @@
   <section>
     <h2 class="section-title" data-key="aboutTitle">نبذة عني 👋</h2>
     <p class="about-text" data-key="aboutDesc">
-        أنا محمد أبوبكر، طالب في كلية الحاسبات والمعلومات. شغوف بالتكنولوجيا والبرمجة، وبحاول كل يوم أتعلم حاجة جديدة في عالم الـ Computer Science.
+        أنا محمد أبوبكر، طالب في كلية الحاسبات والمعلومات. شغوف بالتكنولوجيا والبرمجة، وبحاول كل يوم أتعلم حاجة جديدة في عالم الـ Computer Science. بجمع بين حبي للكود والإبداع.
     </p>
+  </section>
+
+  <section>
+    <h2 class="section-title" data-key="projectsTitle">مشاريعي 💼</h2>
+    <div class="projects-grid">
+      <div class="project-card">
+        <h3 data-key="todoTitle">قائمة المهام الذكية</h3>
+        <p data-key="todoDesc">تطبيق ويب متكامل لإدارة المهام اليومية، مزود بمؤقت للتركيز وخاصية تغيير الألوان لتجربة مستخدم مخصصة.</p>
+        <a href="https://mobakr111.github.io/my-todo-list-/" target="_blank" class="project-btn" data-key="visitBtn">معاينة المشروع ↗</a>
+      </div>
+      <div class="project-card">
+        <h3 data-key="tasbihTitle">السبحة الإلكترونية</h3>
+        <p data-key="tasbihDesc">تطبيق ويب خفيف وسريع للتسبيح اليومي، مصمم بواجهة هادئة ومريحة للعين لتسهيل الاستخدام.</p>
+        <a href="https://mobakr111.github.io/tasbih/" target="_blank" class="project-btn" data-key="visitBtn">معاينة المشروع ↗</a>
+      </div>
+    </div>
   </section>
 
   <section>
@@ -197,6 +251,27 @@
     </div>
   </section>
 
+  <section>
+    <h2 class="section-title" data-key="contactTitle">تواصل معي 📬</h2>
+    <div class="contact-container">
+      <form action="https://formspree.io/f/mzdogqaw" method="POST">
+        <div class="form-group">
+          <label class="form-label" data-key="contactName">الاسم</label>
+          <input type="text" name="name" class="form-control" required>
+        </div>
+        <div class="form-group">
+          <label class="form-label" data-key="contactEmail">البريد الإلكتروني</label>
+          <input type="email" name="email" class="form-control" required>
+        </div>
+        <div class="form-group">
+          <label class="form-label" data-key="contactMessage">الرسالة</label>
+          <textarea name="message" class="form-control" required></textarea>
+        </div>
+        <button type="submit" class="submit-btn" data-key="contactSubmit">إرسال الرسالة 🚀</button>
+      </form>
+    </div>
+  </section>
+
   <footer>
     <p><span data-key="footer">صُنع بـ ♥ بواسطة محمد أبوبكر</span> · 5/5/2026</p>
   </footer>
@@ -209,9 +284,20 @@
         status: "طالب كلية الحاسبات والمعلومات",
         title: "مبرمج ناشئ",
         aboutTitle: "نبذة عني 👋",
-        aboutDesc: "أنا محمد أبوبكر، طالب في كلية الحاسبات والمعلومات. شغوف بالتكنولوجيا والبرمجة، وبحاول كل يوم أتعلم حاجة جديدة. بجمع بين حبي للكود والإبداع — سواء كان ده في التصوير أو الأفلام أو الروايات.",
+        aboutDesc: "أنا محمد أبوبكر، طالب في كلية الحاسبات والمعلومات. شغوف بالتكنولوجيا والبرمجة، وبحاول كل يوم أتعلم حاجة جديدة في عالم الـ Computer Science. بجمع بين حبي للكود والإبداع.",
+        projectsTitle: "مشاريعي 💼",
+        todoTitle: "قائمة المهام الذكية",
+        todoDesc: "تطبيق ويب متكامل لإدارة المهام اليومية، مزود بمؤقت للتركيز وخاصية تغيير الألوان لتجربة مستخدم مخصصة.",
+        tasbihTitle: "السبحة الإلكترونية",
+        tasbihDesc: "تطبيق ويب خفيف وسريع للتسبيح اليومي، مصمم بواجهة هادئة ومريحة للعين لتسهيل الاستخدام.",
+        visitBtn: "معاينة المشروع ↗",
         interestsTitle: "اهتماماتي ✨",
         skillsTitle: "المهارات 🚀",
+        contactTitle: "تواصل معي 📬",
+        contactName: "الاسم",
+        contactEmail: "البريد الإلكتروني",
+        contactMessage: "الرسالة",
+        contactSubmit: "إرسال الرسالة 🚀",
         footer: "صُنع بـ ♥ بواسطة محمد أبوبكر",
         langBtn: "English",
         interests: [
@@ -228,8 +314,19 @@
         title: "Junior Developer",
         aboutTitle: "About Me 👋",
         aboutDesc: "I am Mohamed Abu Bakr, a CS student. I am passionate about technology and coding, constantly exploring new horizons in software development and creativity.",
+        projectsTitle: "My Projects 💼",
+        todoTitle: "Smart To-Do List",
+        todoDesc: "A full-featured web app for daily task management, complete with a focus timer and theme switcher for a personalized experience.",
+        tasbihTitle: "Digital Tasbih",
+        tasbihDesc: "A lightweight and fast digital rosary web app, designed with a calm and eye-friendly interface.",
+        visitBtn: "View Project ↗",
         interestsTitle: "Interests ✨",
         skillsTitle: "Skills 🚀",
+        contactTitle: "Contact Me 📬",
+        contactName: "Name",
+        contactEmail: "Email",
+        contactMessage: "Message",
+        contactSubmit: "Send Message 🚀",
         footer: "Made with ♥ by Mohamed Abu Bakr",
         langBtn: "عربي",
         interests: [
@@ -275,3 +372,4 @@
   </script>
 </body>
 </html>
+
